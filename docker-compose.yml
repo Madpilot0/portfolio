@@ -7,10 +7,10 @@ services:
     container_name: portfolio
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portfolio.rule=Host(`p.sanderwegter.nl`)"
-      - "traefik.http.services.portfolio.loadbalancer.server.port=80"
-      - "traefik.http.routers.portfolio.entrypoints=websecure"
-      - "traefik.http.routers.portfolio.tls.certresolver=myresolver"
+      - "traefik.http.routers.swportfolio.rule=Host(`p.sanderwegter.nl`)"
+      - "traefik.http.services.swportfolio.loadbalancer.server.port=80"
+      - "traefik.http.routers.swportfolio.entrypoints=websecure"
+      - "traefik.http.routers.swportfolio.tls.certresolver=myresolver"
       - "traefik.http.middlewares.testHeader.headers.framedeny=true"
       - "traefik.http.middlewares.testHeader.headers.forcestsheader=true"
       - "traefik.http.middlewares.testHeader.headers.stspreload=true"
