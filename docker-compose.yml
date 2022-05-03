@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+  portfolio:
+    restart: unless-stopped
+    image: madpilot0/portfolio:latest
+    container_name: portfolio
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio.rule=Host(`p.sanderwegter.nl`)"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=80"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.tls.certresolver=myresolver"
+      - "traefik.http.middlewares.testHeader.headers.framedeny=true"
+      - "traefik.http.middlewares.testHeader.headers.forcestsheader=true"
+      - "traefik.http.middlewares.testHeader.headers.stspreload=true"
+      - "traefik.http.middlewares.testHeader.headers.stsseconds=315360000"
+      - "traefik.http.middlewares.testHeader.headers.sslredirect=true"
+      - "traefik.docker.network=traefik_default"
+    networks:
+      - traefik_default
+    volumes:
+      - /opt/data/pps/onat/nginx.conf:/etc/nginx/conf.d/default.conf
+
+networks:
+  traefik_default:
+    external: true
