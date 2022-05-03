@@ -42,7 +42,7 @@ jobs:
       - name: Deploy
         uses: Puur-IT-NL/docker-remote-deployment-action@v1.0
         with:
-          remote_docker_host: ${{ secrets.SW_USER }}@${{ secrets.SW_HOST }}:${{ secrets.SW_PORT}}
+          remote_docker_host: ${{ secrets.SW_USER }}@${{ secrets.SW_HOST }}
           ssh_private_key: ${{ secrets.SW_SECRET }}
           ssh_public_key: ${{ secrets.SW_PUB }}
           stack_file_name: docker-compose.yml
