@@ -19,8 +19,6 @@ services:
       - "traefik.docker.network=traefik_default"
     networks:
       - traefik_default
-    volumes:
-      - /opt/data/pps/onat/nginx.conf:/etc/nginx/conf.d/default.conf
 
 networks:
   traefik_default:
