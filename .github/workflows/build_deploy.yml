@@ -46,6 +46,6 @@ jobs:
           ssh_private_key: ${{ secrets.SW_SECRET }}
           ssh_public_key: ${{ secrets.SW_PUB }}
           stack_file_name: docker-compose.yml
-          docker_login_password: ${{ secrets.DOCKERHUB_USERNAME }}
-          docker_login_user: ${{ secrets.DOCKERHUB_TOKEN }}
+          docker_login_user: ${{ secrets.DOCKERHUB_USERNAME }}
+          docker_login_password: ${{ secrets.DOCKERHUB_TOKEN }}
           args: up -d
