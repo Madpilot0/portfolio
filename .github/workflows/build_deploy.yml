@@ -42,7 +42,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Deploy
-        uses: Puur-IT-NL/docker-remote-deployment-action@v1.1
+        uses: Puur-IT-NL/docker-remote-deployment-action@v1.8
         with:
           remote_docker_host: ${{ secrets.SW_USER }}@${{ secrets.SW_HOST }}
           ssh_private_key: ${{ secrets.SW_SECRET }}
